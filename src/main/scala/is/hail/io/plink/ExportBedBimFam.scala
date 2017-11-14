@@ -41,9 +41,6 @@ object ExportBedBimFam {
     }
   }
 
-  private val variantType = TVariant(GenomeReference.GRCh37)
-  private val altAllelesType = variantType.representation.field("altAlleles").typ
-
   def bimRowTransformer(rowType: TStruct): Iterator[RegionValue] => Iterator[String] = { it =>
     val vIdx = rowType.fieldIdx("v")
     val psuedoVariantType = rowType.fieldType(vIdx).asInstanceOf[TStruct]
