@@ -48,6 +48,7 @@ object ExportBedBimFam {
 
     it.map { rv =>
       val region = rv.region
+      assert(rowType.isFieldDefined(rv, vIdx))
       vview.setRegion(region, rowType.loadField(rv, vIdx))
       val contig = vview.getContig()
       val start = vview.getStart()
