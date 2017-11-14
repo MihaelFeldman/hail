@@ -7,7 +7,7 @@ import is.hail.variant._
 
 object ExportBedBimFam {
 
-  val gtMap = Array(1, 3, 2, 0)
+  val gtMap = Array(3, 2, 0)
 
   def bedRowTransformer(nSamples: Int, rowType: TStruct): Iterator[RegionValue] => Iterator[Array[Byte]] = { it =>
     val hcv = HardCallView(rowType)
