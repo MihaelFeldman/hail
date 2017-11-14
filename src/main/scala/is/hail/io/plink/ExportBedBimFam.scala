@@ -43,7 +43,7 @@ object ExportBedBimFam {
 
   def bimRowTransformer(rowType: TStruct): Iterator[RegionValue] => Iterator[String] = { it =>
     val vIdx = rowType.fieldIdx("v")
-    val psuedoVariantType = rowType.fieldType(vIdx).asInstanceOf[TStruct]
+    val psuedoVariantType = rowType.fieldType(vIdx).fundamentalType.asInstanceOf[TStruct]
     val view = new VariantView(psuedoVariantType)
 
     it.map { rv =>
