@@ -14,13 +14,13 @@ object ExportBedBimFam {
     val rvb = new RegionValueBuilder()
     val rv2 = RegionValue()
     val gtMap = Array(3, 2, 0)
+    val nBytes = (nSamples + 3) / 4
+    val a = new Array[Byte](nBytes)
 
     it.map { rv =>
       hcv.setRegion(rv)
       rvb.set(rv.region)
 
-      val nBytes = (nSamples + 3) / 4
-      val a = new Array[Byte](nBytes)
       var b = 0
       var k = 0
       while (k < nSamples) {
